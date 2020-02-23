@@ -1,12 +1,11 @@
 //datapath with memory interface; includes ram and peripherals
 module datapath_mi(clk, rst, data, control_word, K, I, alu_status, r0, r1, r2, r3, r4, r5, r6, r7);
 	input clk, rst;
-    inout [7:0] data;
 	input [21:0] control_word;
 	input [7:0] K;
     output [15:0] I;
 	output [3:0] alu_status;
-	output [7:0] r0, r1, r2, r3, r4, r5, r6, r7;
+	output [7:0] data, r0, r1, r2, r3, r4, r5, r6, r7;
 	
     wire mw, mr;
     assign mw = control_word[18];
