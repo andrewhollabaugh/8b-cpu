@@ -1,4 +1,4 @@
-module register_nbit(clk, rst, l, Q, D);
+module register_nbit(clk, rst, l, D, Q);
 	parameter N = 8; // number of bits
 	input clk; // positive edge clock
 	input rst; // positive logic asynchronous reset
