@@ -1,7 +1,7 @@
 module decoder_3x8(m, s, en);
 	input [2:0] s; // select
 	input en; // enable (positive logic)
-	output [7:0] m;
+	output reg [7:0] m;
 	
     always @(s or en) begin
         if(en) begin

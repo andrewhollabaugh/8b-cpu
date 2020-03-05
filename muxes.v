@@ -1,5 +1,5 @@
 module mux4to1nbit(F, S, I0, I1, I2, I3);
-	parameter N = 64;
+	parameter N = 8;
 	input [N-1:0]I0, I1, I2, I3;
 	input [1:0]S;
 	output [N-1:0]F;
@@ -8,7 +8,7 @@ module mux4to1nbit(F, S, I0, I1, I2, I3);
 endmodule
 
 module mux8to1nbit(F, S, I0, I1, I2, I3, I4, I5, I6, I7);
-	parameter N = 64;
+	parameter N = 8;
 	input [N-1:0]I0, I1, I2, I3, I4, I5, I6, I7;
 	input [2:0]S;
 	output [N-1:0]F;
