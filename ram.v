@@ -1,3 +1,24 @@
+module ram(data, addr, cs, we, re);
+    parameter DATA_WIDTH = 8;
+    parameter ADDR_WIDTH = 8;
+    parameter RAM_DEPTH = 1 << ADDR_WIDTH;
+    parameter BASE_ADDR = 0;
+
+    input cs, we, re;
+    input [ADDR_WIDTH + BASE_ADDR - 1:0] addr;
+    inout [DATA_WIDTH - 1:0] data;
+    reg [DATA_WIDTH - 1:0] mem [0:RAM_DEPTH - 1];
+	 reg [DATA_WIDTH - 1:0] data_out;
+	 
+	 assign data = (cs && !we && re) ? data_out : {DATA_WIDTH{1'bz}}; 
+
+    always@* begin
+	     if(cs && we) mem[addr] <= data;
+		  data_out <= mem[addr];
+    end
+endmodule
+
+/*
 module ram(
 clk         , // Clock Input
 address     , // Address Input
@@ -55,4 +76,5 @@ begin : MEM_READ
 end
 
 endmodule
+*/
 
