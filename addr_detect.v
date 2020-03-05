@@ -4,5 +4,5 @@ module addr_detect(addr, out);
 	parameter base_addr = 8'h00; // the address to detect
 	parameter addr_mask = 8'hFF; // which bits to care about (1 means we care)
 	
-	assign out = ((address & address_mask) == base_address);
+	assign out = ((addr & addr_mask) == base_addr);
 endmodule
