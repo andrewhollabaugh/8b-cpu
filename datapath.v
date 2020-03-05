@@ -9,6 +9,7 @@ module datapath(clk, rst, data, addr, control_word, K, I, alu_status_latched, r0
 	
     wire sl, il, pcl, b_sel, a_sel, en_alu, ci, w;
 	wire [2:0] DA, SA, SB, FS;
+	wire [3:0] alu_status;
 
     //control_word = {sl, il, pcl, mr, mw, b_sel, a_sel, en_alu, ci, FS, w, SB, SA, DA};
     assign sl = control_word[21];
@@ -39,7 +40,7 @@ module datapath(clk, rst, data, addr, control_word, K, I, alu_status_latched, r0
 
     assign addr = K;
 
-	register_nbit alu_status_reg_inst(clk, rst, SL, alu_status, alu_status_latched);
+	register_nbit alu_status_reg_inst(clk, rst, sl, alu_status, alu_status_latched);
 	defparam alu_status_reg_inst.N = 4;
 
     rom rom_inst(rom_data, rom_addr);
